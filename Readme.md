@@ -21,7 +21,7 @@ A dual-featured web application combining two practical cybersecurity tools:
 Python · Flask · zxcvbn · NLTK · HTML/CSS
 
 ### 🚀 Run
-```
+```bash
 pip install flask zxcvbn nltk
 python gui_app.py
 # Visit http://localhost:5000
@@ -44,7 +44,7 @@ Metadata logging with timestamp & hash
 Python · Flask · cryptography · SHA-256 · Bootstrap
 
 🚀 Run
-```
+```bash
 pip install flask cryptography
 python app.py
 # Visit http://localhost:5000
