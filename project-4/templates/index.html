@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Password Analyzer & Wordlist Tool</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🔐 Password Strength Analyzer</h1>
+    <div style="background-color: #fff8e1; padding: 12px 16px; border-left: 5px solid #facc15; margin-bottom: 20px; border-radius: 6px;">
+        <p style="font-weight: bold; margin-bottom: 6px;">Password Tips:</p>
+        <ul style="margin-left: 20px; font-size: 14px;">
+        <li>✅ At least <strong>8 characters</strong></li>
+        <li>✅ Include <strong>uppercase, lowercase, number, and symbol</strong></li>
+        <li>❌ Avoid using your <strong>name, pet name, or birth year</strong></li>
+        <li>❌ Don't use common passwords like "123456", "qwerty", or "password"</li>
+        </ul>
+    </div>
+    <form method="POST">
+      <label for="password">Password <span style="color:red">*</span></label>
+      <input type="password" id="password" name="password" required>
+
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name">
+
+      <label for="pet">Pet Name</label>
+      <input type="text" id="pet" name="pet">
+
+      <label for="dob">DOB or Year</label>
+      <input type="text" id="dob" name="dob">
+
+      <label for="custom">Custom Keywords (space-separated)</label>
+      <textarea id="custom" name="custom" rows="2"></textarea>
+
+      <button type="submit">Analyze & Generate Wordlist</button>
+    </form>
+
+    {% if result %}
+      <div class="results">
+        <h2>🔎 Analysis Result</h2>
+        <p><strong>Score:</strong> {{ result.score }} / 4</p>
+        <p><strong>Estimated Crack Time:</strong> {{ result.crack_time }}</p>
+
+        <strong>Feedback:</strong>
+        <ul>
+          {% for tip in result.feedback.suggestions %}
+            <li>{{ tip }}</li>
+          {% endfor %}
+          {% if not result.feedback.suggestions %}
+            <li>Password is strong. No suggestions needed!</li>
+          {% endif %}
+        </ul>
+
+        {% if wordlist_ready %}
+          <a href="/download" class="download-link">⬇️ Download Wordlist</a>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <footer>
+      Built with ❤️ by Suve | For ethical & educational use only
+    </footer>
+  </div>
+</body>
+</html>
