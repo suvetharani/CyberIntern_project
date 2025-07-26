@@ -24,10 +24,8 @@ Python · Flask · zxcvbn · NLTK · HTML/CSS
 ```bash
 pip install flask zxcvbn nltk
 python gui_app.py
-```
-
 # Visit http://localhost:5000
-
+```
 ---
 
 2️⃣ AES File Encryptor Web App
@@ -49,10 +47,8 @@ Python · Flask · cryptography · SHA-256 · Bootstrap
 ```
 pip install flask cryptography
 python app.py
-```
-
 # Visit http://localhost:5000
-
+```
 🧪 Process
 Upload ➝ Encrypt ➝ Get .enc & .key
 
